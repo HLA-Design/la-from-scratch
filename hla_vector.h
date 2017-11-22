@@ -7,15 +7,23 @@
 template <typename T>
 class hla_vector {
     
-    std::vector<T> vec;
+    std::vector<T> m_vec;
     
 public:
     
     /* ctor */
-    hla_vector(std::vector<T> vec_);
+    hla_vector(const std::vector<T>& _vec);
     
     /* dtor */
     ~hla_vector();
+    
+    /* addition overload
+     *
+     * @param r_vec right vector to be added
+     *
+     * @return result vector after addition
+     */
+    hla_vector& operator+=(const hla_vector& r_vec);
     
 private:
     
