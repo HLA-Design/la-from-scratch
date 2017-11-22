@@ -14,6 +14,9 @@ public:
     /* ctor */
     hla_vector(std::vector<T> vec_);
     
+    /* dtor */
+    ~hla_vector();
+    
 private:
     
 private:
