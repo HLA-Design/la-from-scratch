@@ -17,6 +17,19 @@ hla_vector<T>::~hla_vector() {
     
 };
 
+/* access overload */
+template <typename T>
+T& hla_vector<T>::operator[](size_t idx) {
+    
+    if (idx >= m_vec.size) {
+        throw std::length_error("Accessing vector out of range");
+    }
+    
+    return m_vec[idx];
+    
+}
+
+/* addition overload */
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator+=(const hla_vector<T>& r_vec) {
     
@@ -24,7 +37,7 @@ hla_vector<T>& hla_vector<T>::operator+=(const hla_vector<T>& r_vec) {
         throw std::length_error("Cannot add vectors of different lengths.");
     }
     
-    for (unsigned int i = 0; i < m_vec.size; ++i) {
+    for (size_t i = 0; i < m_vec.size; ++i) {
         m_vec[i] += r_vec[i];
     }
     

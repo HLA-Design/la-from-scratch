@@ -17,6 +17,14 @@ public:
     /* dtor */
     ~hla_vector();
     
+    /* access overload
+     *
+     * @param idx index of vector to access
+     *
+     * @return value at index i
+     */
+    T& operator[](size_t idx);
+    
     /* addition overload
      *
      * @param r_vec right vector to be added
