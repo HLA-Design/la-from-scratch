@@ -25,13 +25,21 @@ public:
      */
     T& operator[](size_t idx);
     
-    /* addition overload
+    /* addition equals overload
      *
      * @param r_vec right vector to be added
      *
      * @return result vector after addition
      */
     hla_vector& operator+=(const hla_vector& r_vec);
+    
+    /* subtraction equals overload
+     *
+     * @param r_vec right vector to be subtracted
+     *
+     * @return result vector after subtraction
+     */
+    hla_vector& operator-=(const hla_vector& r_vec);
     
 private:
     
