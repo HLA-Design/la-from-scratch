@@ -47,6 +47,14 @@ public:
      */
     hla_vector& operator-=(const hla_vector& r_vec);
     
+    /* multiplication equals overload - hadamard product
+     *
+     * @param r_vec right vector to be multiplied elementwise
+     *
+     * @return result vector after elementwise multiplication
+     */
+    hla_vector& operator*=(const hla_vector& r_vec);
+    
 private:
     
 private:
