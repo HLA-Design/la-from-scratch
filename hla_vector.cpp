@@ -17,6 +17,14 @@ hla_vector<T>::~hla_vector() {
     
 };
 
+/* returns the size of the vector */
+template <typename T>
+size_t hla_vector<T>::size() {
+    
+    return m_vec.size;
+    
+};
+
 /* access overload */
 template <typename T>
 T& hla_vector<T>::operator[](size_t idx) {

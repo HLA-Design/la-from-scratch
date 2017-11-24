@@ -17,6 +17,12 @@ public:
     /* dtor */
     ~hla_vector();
     
+    /* returns the size of the vector
+     *
+     * @return size of the vector
+     */
+    size_t size();
+    
     /* access overload
      *
      * @param idx index of vector to access
