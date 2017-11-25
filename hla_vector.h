@@ -113,13 +113,21 @@ public:
      */
     double norm_inf();
     
-    /* p-norm computation
+    /* generic p-norm computation
      *
      * @param p where p >= 1 - defines order of the norm
      *
      * @return p norm of the vector
      */
-    double norm_p(double& p);
+    double norm(double& p);
+    
+    /* computes the dot product with another vector
+     *
+     * @param r_vec
+     *
+     * @return dot product of this vec and r_vec
+     */
+    double dot(hla_vector& r_vec);
     
 private:
     

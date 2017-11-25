@@ -184,7 +184,7 @@ double hla_vector<T>::norm_inf() {
 
 /* p-norm computation */
 template <typename T>
-double hla_vector<T>::norm_p(double& p) {
+double hla_vector<T>::norm(double& p) {
     
     // check for infinity norm
     if (isinf(p)) {
@@ -199,6 +199,26 @@ double hla_vector<T>::norm_p(double& p) {
     };
     
     return pow(norm, 1.0 / p);
+    
+};
+
+/* computes the dot product with another vector */
+template <typename T>
+double hla_vector<T>::dot(hla_vector<T>& r_vec) {
+    
+    if (m_vec.size != r_vec.size) {
+        throw std::length_error("Cannot compute dot product of different length vectors.");
+    };
+    
+    double dot_prod = 0.0;
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        double m_elem = static_cast<double> (m_vec[i]);
+        double r_elem = static_cast<double> (r_vec[i]);
+        dot_prod += m_elem * r_elem;
+    };
+    
+    return dot_prod;
     
 };
 
