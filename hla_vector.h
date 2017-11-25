@@ -95,6 +95,12 @@ public:
      */
     hla_vector& operator/=(const T& scalar);
     
+    /* 1-norm computation
+     *
+     * @return 1 norm of the vector
+     */
+    double norm_1();
+    
 private:
     
 private:

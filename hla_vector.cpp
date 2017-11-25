@@ -1,6 +1,7 @@
 
 #include "hla_vector.h"
 #include <vector>
+#include <cmath>
 
 /* ctor */
 template <typename T>
@@ -130,6 +131,21 @@ hla_vector<T>& hla_vector<T>::operator/=(const T& scalar) {
     for (size_t i = 0; i < m_vec.size; ++i) {
         m_vec[i] /= scalar;
     }
+    
+};
+
+/* 1-norm computation */
+template <typename T>
+double hla_vector<T>::norm_1() {
+    
+    double norm = 0.0;
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        double entry = static_cast<double> (m_vec[i]);
+        norm += std::abs(entry);
+    };
+    
+    return norm;
     
 };
 
