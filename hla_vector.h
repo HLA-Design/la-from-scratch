@@ -59,9 +59,17 @@ public:
      *
      * @param scalar to be added to each vector element
      *
-     * @return result vector broadcast addition
+     * @return result vector after broadcast addition
      */
     hla_vector& operator+=(const T& scalar);
+    
+    /* subtraction equals overload - scalar broadcast
+     *
+     * @param scalar to be subtracted from each vector element
+     *
+     * @return result vector after broadcast subtraction
+     */
+    hla_vector& operator-=(const T& scalar);
     
 private:
     

@@ -89,6 +89,16 @@ hla_vector<T>& hla_vector<T>::operator+=(const T& scalar) {
     
 };
 
+/* subtraction equals overload - scalar broadcast */
+template <typename T>
+hla_vector<T>& hla_vector<T>::operator-=(const T& scalar) {
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        m_vec[i] -= scalar;
+    }
+    
+};
+
 int main() {
     return 0;
 };
