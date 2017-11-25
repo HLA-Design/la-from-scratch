@@ -87,6 +87,14 @@ public:
      */
     hla_vector& operator*=(const T& scalar);
     
+    /* division equals overload - scalar broadcast
+     *
+     * @param scalar to be divided with each vector element
+     *
+     * @return result vector after broadcast division
+     */
+    hla_vector& operator/=(const T& scalar);
+    
 private:
     
 private:
