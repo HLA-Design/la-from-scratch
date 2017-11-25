@@ -113,6 +113,14 @@ public:
      */
     double norm_inf();
     
+    /* p-norm computation
+     *
+     * @param p where p >= 1 - defines order of the norm
+     *
+     * @return p norm of the vector
+     */
+    double norm_p(double& p);
+    
 private:
     
 private:

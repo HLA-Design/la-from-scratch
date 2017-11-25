@@ -182,6 +182,26 @@ double hla_vector<T>::norm_inf() {
     
 };
 
+/* p-norm computation */
+template <typename T>
+double hla_vector<T>::norm_p(double& p) {
+    
+    // check for infinity norm
+    if (isinf(p)) {
+        return hla_vector<T>::norm_inf();
+    }
+    
+    double norm = 0.0;
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        double entry = static_cast<double> (m_vec[i]);
+        norm += pow(std::abs(entry), p);
+    };
+    
+    return pow(norm, 1.0 / p);
+    
+};
+
 int main() {
     return 0;
 };
