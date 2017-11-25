@@ -2,6 +2,7 @@
 #include "hla_vector.h"
 #include <vector>
 #include <cmath>
+#include <limits>
 
 /* ctor */
 template <typename T>
@@ -143,6 +144,38 @@ double hla_vector<T>::norm_1() {
     for (size_t i = 0; i < m_vec.size; ++i) {
         double entry = static_cast<double> (m_vec[i]);
         norm += std::abs(entry);
+    };
+    
+    return norm;
+    
+};
+
+/* 2-norm computation */
+template <typename T>
+double hla_vector<T>::norm_2() {
+    
+    double norm = 0.0;
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        double entry = static_cast<double> (m_vec[i]);
+        norm += pow(entry, 2);
+    };
+    
+    return pow(norm, 0.5);
+    
+};
+
+/* infinity-norm computation */
+template <typename T>
+double hla_vector<T>::norm_inf() {
+    
+    double norm = - std::numeric_limits<double>::infinity();
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        double entry = static_cast<double> (m_vec[i]);
+        if (std::abs(entry) > norm) {
+            norm = std::abs(entry);
+        };
     };
     
     return norm;

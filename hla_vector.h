@@ -101,6 +101,18 @@ public:
      */
     double norm_1();
     
+    /* 2-norm computation
+     *
+     * @return 2 norm of the vector
+     */
+    double norm_2();
+    
+    /* infinity-norm computation
+     *
+     * @return infinity norm of the vector
+     */
+    double norm_inf();
+    
 private:
     
 private:
