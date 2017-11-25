@@ -70,6 +70,14 @@ public:
      * @return result vector after broadcast subtraction
      */
     hla_vector& operator-=(const T& scalar);
+
+    /* multiplication equals overload - scalar broadcast
+     *
+     * @param scalar to be multiplied with each vector element
+     *
+     * @return result vector after broadcast multiplication
+     */
+    hla_vector& operator*=(const T& scalar);
     
 private:
     
