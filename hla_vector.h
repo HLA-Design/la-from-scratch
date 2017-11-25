@@ -55,6 +55,14 @@ public:
      */
     hla_vector& operator*=(const hla_vector& r_vec);
     
+    /* addition equals overload - scalar broadcast
+     *
+     * @param scalar to be added to each vector element
+     *
+     * @return result vector broadcast addition
+     */
+    hla_vector& operator+=(const T& scalar);
+    
 private:
     
 private:
