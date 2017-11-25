@@ -79,6 +79,20 @@ hla_vector<T>& hla_vector<T>::operator*=(const hla_vector<T>& r_vec) {
 
 };
 
+/* division equals overload*/
+template <typename T>
+hla_vector<T>& hla_vector<T>::operator/=(const hla_vector<T>& r_vec) {
+    
+    if (m_vec.size != r_vec.size) {
+        throw std::length_error("Cannot divide vectors of different lengths.");
+    }
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        m_vec[i] /= r_vec[i];
+    }
+    
+};
+
 /* addition equals overload - scalar broadcast */
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator+=(const T& scalar) {

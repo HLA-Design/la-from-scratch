@@ -55,6 +55,14 @@ public:
      */
     hla_vector& operator*=(const hla_vector& r_vec);
     
+    /* division equals overload
+     *
+     * @param r_vec right vector to be divided elementwise
+     *
+     * @return result vector after elementwise division
+     */
+    hla_vector& operator/=(const hla_vector& r_vec);
+    
     /* addition equals overload - scalar broadcast
      *
      * @param scalar to be added to each vector element
