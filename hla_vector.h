@@ -1,6 +1,6 @@
 
-#ifndef HLA_VECTOR_H
-#define HLA_VECTOR_H
+#ifndef HLA_VECTOR_HPP
+#define HLA_VECTOR_HPP
 
 #include <vector>
 
