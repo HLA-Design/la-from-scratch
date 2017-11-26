@@ -138,6 +138,9 @@ public:
      */
     hla_vector& normalize();
     
+    /* prints the contents of the vector */
+    void print();
+    
 private:
     
 private:

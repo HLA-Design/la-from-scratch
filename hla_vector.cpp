@@ -3,6 +3,7 @@
 #include <vector>
 #include <cmath>
 #include <limits>
+#include <iostream>
 
 /* ctor */
 template <typename T>
@@ -237,6 +238,22 @@ hla_vector<T>& hla_vector<T>::normalize() {
     for (size_t i; i < m_vec.size; ++i) {
         m_vec /= length;
     };
+    
+};
+
+/* prints the contents of the vector */
+template <typename T>
+void hla_vector<T>::print() {
+    
+    std::cout << "[";
+    
+    for (size_t i = 0; i < m_vec.size; ++i) {
+        std::cout << m_vec[i] << ",";
+    }
+    
+    std::cout << "]";
+    
+    return;
     
 };
 
