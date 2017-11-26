@@ -31,14 +31,14 @@ hla_vector<T>::hla_vector(const hla_vector<T>& vec)
 template <typename T>
 std::size_t hla_vector<T>::size()
 {    
-  return m_vec.size;
+  return m_vec.size();
 }
 
 /* access overload */
 template <typename T>
 T& hla_vector<T>::operator[](std::size_t idx)
 {
-  if (idx >= m_vec.size) {
+  if (idx >= m_vec.size()) {
     throw std::length_error("Accessing vector out of range");
   }
 
@@ -49,11 +49,11 @@ T& hla_vector<T>::operator[](std::size_t idx)
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator+=(const hla_vector<T>& r_vec) {
     
-    if (m_vec.size != r_vec.size) {
+    if (m_vec.size() != r_vec.size()) {
         throw std::length_error("Cannot add vectors of different lengths.");
     }
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] += r_vec[i];
     }
     
@@ -63,11 +63,11 @@ hla_vector<T>& hla_vector<T>::operator+=(const hla_vector<T>& r_vec) {
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator-=(const hla_vector<T>& r_vec) {
     
-    if (m_vec.size != r_vec.size) {
+    if (m_vec.size() != r_vec.size()) {
         throw std::length_error("Cannot subtract vectors of different lengths.");
     }
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] -= r_vec[i];
     }
     
@@ -77,11 +77,11 @@ hla_vector<T>& hla_vector<T>::operator-=(const hla_vector<T>& r_vec) {
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator*=(const hla_vector<T>& r_vec) {
     
-    if (m_vec.size != r_vec.size) {
+    if (m_vec.size() != r_vec.size()) {
         throw std::length_error("Cannot multiply vectors of different lengths.");
     }
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] *= r_vec[i];
     }
 
@@ -91,11 +91,11 @@ hla_vector<T>& hla_vector<T>::operator*=(const hla_vector<T>& r_vec) {
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator/=(const hla_vector<T>& r_vec) {
     
-    if (m_vec.size != r_vec.size) {
+    if (m_vec.size() != r_vec.size()) {
         throw std::length_error("Cannot divide vectors of different lengths.");
     }
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] /= r_vec[i];
     }
     
@@ -105,7 +105,7 @@ hla_vector<T>& hla_vector<T>::operator/=(const hla_vector<T>& r_vec) {
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator+=(const T& scalar) {
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] += scalar;
     }
     
@@ -115,7 +115,7 @@ hla_vector<T>& hla_vector<T>::operator+=(const T& scalar) {
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator-=(const T& scalar) {
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] -= scalar;
     }
     
@@ -125,7 +125,7 @@ hla_vector<T>& hla_vector<T>::operator-=(const T& scalar) {
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator*=(const T& scalar) {
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] *= scalar;
     }
     
@@ -135,7 +135,7 @@ hla_vector<T>& hla_vector<T>::operator*=(const T& scalar) {
 template <typename T>
 hla_vector<T>& hla_vector<T>::operator/=(const T& scalar) {
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] /= scalar;
     }
     
@@ -147,7 +147,7 @@ double hla_vector<T>::norm_1() {
     
     double norm = 0.0;
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         double entry = static_cast<double> (m_vec[i]);
         norm += std::abs(entry);
     };
@@ -162,7 +162,7 @@ double hla_vector<T>::norm_2() {
     
     double norm = 0.0;
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         double entry = static_cast<double> (m_vec[i]);
         norm += pow(entry, 2);
     };
@@ -177,7 +177,7 @@ double hla_vector<T>::norm_inf() {
     
     double norm = - std::numeric_limits<double>::infinity();
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         double entry = static_cast<double> (m_vec[i]);
         if (std::abs(entry) > norm) {
             norm = std::abs(entry);
@@ -199,7 +199,7 @@ double hla_vector<T>::norm(double& p) {
     
     double norm = 0.0;
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         double entry = static_cast<double> (m_vec[i]);
         norm += pow(std::abs(entry), p);
     }
@@ -212,13 +212,13 @@ double hla_vector<T>::norm(double& p) {
 template <typename T>
 double hla_vector<T>::dot(hla_vector<T>& r_vec) {
     
-    if (m_vec.size != r_vec.size) {
+    if (m_vec.size() != r_vec.size()) {
         throw std::length_error("Cannot compute dot product of different length vectors.");
     };
     
     double dot_prod = 0.0;
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
         double m_elem = static_cast<double> (m_vec[i]);
         double r_elem = static_cast<double> (r_vec[i]);
         dot_prod += m_elem * r_elem;
@@ -234,7 +234,7 @@ hla_vector<T>& hla_vector<T>::normalize() {
     
     double length = norm_2();
     
-    for (std::size_t i; i < m_vec.size; ++i) {
+    for (std::size_t i; i < m_vec.size(); ++i) {
         m_vec /= length;
     }
     
@@ -246,8 +246,8 @@ void hla_vector<T>::print() {
     
     std::cout << "[";
     
-    for (std::size_t i = 0; i < m_vec.size; ++i) {
-        std::cout << m_vec[i] << ",";
+    for (std::size_t i = 0; i < m_vec.size(); ++i) {
+        std::cout << m_vec[i] << " ,";
     }
     
     std::cout << "]";
