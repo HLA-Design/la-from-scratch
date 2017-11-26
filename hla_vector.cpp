@@ -19,6 +19,12 @@ hla_vector<T>::~hla_vector() {
     
 };
 
+/* copy constructor */
+template <typename T>
+hla_vector<T>::hla_vector(const hla_vector<T>& vec) {
+    m_vec = vec.m_vec;
+};
+
 /* returns the size of the vector */
 template <typename T>
 size_t hla_vector<T>::size() {

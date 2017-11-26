@@ -17,6 +17,9 @@ public:
     /* dtor */
     ~hla_vector();
     
+    /* copy constructor */
+    hla_vector(const hla_vector& vec);
+    
     /* returns the size of the vector
      *
      * @return size of the vector
