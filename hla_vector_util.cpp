@@ -1,6 +1,6 @@
 
 #include <vector>
-#include "hla_vector.h"
+#include "hla_vector.hpp"
 
 /* addition overload */
 template <typename T>

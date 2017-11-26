@@ -1,9 +1,9 @@
 
-#ifndef HLA_VECTOR_UTIL_H
-#define HLA_VECTOR_UTIL_H
+#ifndef HLA_VECTOR_UTIL_HPP
+#define HLA_VECTOR_UTIL_HPP
 
 #include <vector>
-#include "hla_vector.h"
+#include "hla_vector.hpp"
 
 /* addition overload
  *
@@ -40,5 +40,7 @@ hla_vector<T> operator* (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
  * @return new vector equal to the elementwise division of l_vec and r_vec
  */
 hla_vector<T> operator/ (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
+
+/* normalize vector */
 
 #endif
