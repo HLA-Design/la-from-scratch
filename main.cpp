@@ -7,7 +7,7 @@ int main() {
     
     for (int i = 0; i < 5; ++i) {
         x[i] = i;
-    };
+    }
     
     hla_vector<int> vec1 (x);
 
