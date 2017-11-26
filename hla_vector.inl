@@ -29,7 +29,7 @@ hla_vector<T>::hla_vector(const hla_vector<T>& vec)
 
 /* returns the size of the vector */
 template <typename T>
-std::size_t hla_vector<T>::size()
+std::size_t hla_vector<T>::size() const
 {    
   return m_vec.size();
 }
