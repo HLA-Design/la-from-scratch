@@ -27,7 +27,7 @@ public:
      *
      * @return size of the vector
      */
-    std::size_t size();
+    std::size_t size() const;
     
     /* access overload
      *
