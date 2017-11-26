@@ -23,4 +23,13 @@ hla_vector<T> operator+ (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
  */
 hla_vector<T> operator- (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
 
+/* multiplication overload
+ *
+ * @param l_vec left vector to be multiplied
+ * @param r_vec right vector to be multiplied
+ *
+ * @return new vector equal to the elementwise product of l_vec and r_vec
+ */
+hla_vector<T> operator* (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
+
 #endif
