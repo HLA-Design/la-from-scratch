@@ -224,6 +224,11 @@ double hla_vector<T>::norm(double& p) {
         return hla_vector<T>::norm_inf();
     }
     
+    // check p >= 1
+    if (p < 1) {
+        throw std::invalid_argument("p must be >= 1.");
+    }
+
     double norm = 0.0;
     
     for (std::size_t i = 0; i < m_vec.size(); ++i) {
@@ -256,17 +261,21 @@ double hla_vector<T>::dot(hla_vector<T>& r_vec) {
 }
 
 /* normalizes the vector into a unit vector */
+/*
 template <typename T>
 hla_vector<T>& hla_vector<T>::normalize() {
     
-    double length = norm_2();
+    double length = this->norm_2();
     
     for (std::size_t i; i < m_vec.size(); ++i) {
-        m_vec /= length;
+        m_vec[i] /= length;
     }
     
+    return *this;
+    
 }
-
+*/
+ 
 /* prints the contents of the vector */
 template <typename T>
 void hla_vector<T>::print() {

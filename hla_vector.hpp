@@ -147,7 +147,7 @@ public:
      *
      * @return normalized m_vec
      */
-    hla_vector& normalize();
+//    hla_vector& normalize();
     
     /* prints the contents of the vector */
     void print();
