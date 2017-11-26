@@ -2,11 +2,14 @@
 #ifndef HLA_VECTOR_HPP
 #define HLA_VECTOR_HPP
 
+// includes : keep these to a minimum. Use forward declarations whenever can
 #include <vector>
 
 template <typename T>
 class hla_vector {
-    
+
+private:
+    // data members
     std::vector<T> m_vec;
     
 public:
@@ -24,7 +27,7 @@ public:
      *
      * @return size of the vector
      */
-    size_t size();
+    std::size_t size();
     
     /* access overload
      *
@@ -32,7 +35,7 @@ public:
      *
      * @return value at index i
      */
-    T& operator[](size_t idx);
+    T& operator[](std::size_t idx);
     
     /* addition equals overload
      *
@@ -146,5 +149,7 @@ private:
 private:
     
 };
+
+#include "hla_vector.inl"
 
 #endif

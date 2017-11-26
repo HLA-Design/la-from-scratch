@@ -12,7 +12,7 @@
  *
  * @return new vector equal to the sum of l_vec and r_vec
  */
-hla_vector<T> operator+ (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
+hla_vector<T> operator+ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
 /* subtraction overload
  *
@@ -21,7 +21,7 @@ hla_vector<T> operator+ (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
  *
  * @return new vector equal to the difference of l_vec and r_vec
  */
-hla_vector<T> operator- (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
+hla_vector<T> operator- (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
 /* multiplication overload
  *
@@ -30,7 +30,7 @@ hla_vector<T> operator- (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
  *
  * @return new vector equal to the elementwise product of l_vec and r_vec
  */
-hla_vector<T> operator* (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
+hla_vector<T> operator* (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
 /* division overload
  *
@@ -39,7 +39,7 @@ hla_vector<T> operator* (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
  *
  * @return new vector equal to the elementwise division of l_vec and r_vec
  */
-hla_vector<T> operator/ (hla_vector<T>& l_vec, hla_vector<T>& r_vec);
+hla_vector<T> operator/ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
 /* normalize vector */
 

@@ -1,10 +1,11 @@
 
 #include <vector>
+#include <stdexcept>
 #include "hla_vector.hpp"
 
 /* addition overload */
 template <typename T>
-hla_vector<T> operator+ (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
+hla_vector<T> operator+ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
     
     if (l_vec.size != r_vec.size) {
         throw std::length_error("Cannot add vectors of different lengths.");
@@ -13,7 +14,7 @@ hla_vector<T> operator+ (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
     // initialize a new vector to contain addition
     std::vector<T> new_vec(l_vec.size);
     
-    for (size_t i; i < l_vec.size; ++i) {
+    for (std::size_t i; i < l_vec.size; ++i) {
         new_vec[i] = l_vec[i] + r_vec[i];
     };
     
@@ -23,7 +24,7 @@ hla_vector<T> operator+ (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
 
 /* subtraction overload */
 template <typename T>
-hla_vector<T> operator- (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
+hla_vector<T> operator- (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
     
     if (l_vec.size != r_vec.size) {
         throw std::length_error("Cannot subtract vectors of different lengths.");
@@ -32,7 +33,7 @@ hla_vector<T> operator- (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
     // initialize a new vector to contain addition
     std::vector<T> new_vec(l_vec.size);
     
-    for (size_t i; i < l_vec.size; ++i) {
+    for (std::size_t i; i < l_vec.size; ++i) {
         new_vec[i] = l_vec[i] - r_vec[i];
     };
     
@@ -42,7 +43,7 @@ hla_vector<T> operator- (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
 
 /* multiplication overload */
 template <typename T>
-hla_vector<T> operator* (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
+hla_vector<T> operator* (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
     
     if (l_vec.size != r_vec.size) {
         throw std::length_error("Cannot multiply vectors of different lengths.");
@@ -51,7 +52,7 @@ hla_vector<T> operator* (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
     // initialize a new vector to contain addition
     std::vector<T> new_vec(l_vec.size);
     
-    for (size_t i; i < l_vec.size; ++i) {
+    for (std::size_t i; i < l_vec.size; ++i) {
         new_vec[i] = l_vec[i] * r_vec[i];
     };
     
@@ -61,7 +62,7 @@ hla_vector<T> operator* (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
 
 /* division overload */
 template <typename T>
-hla_vector<T> operator/ (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
+hla_vector<T> operator/ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
     
     if (l_vec.size != r_vec.size) {
         throw std::length_error("Cannot divide vectors of different lengths.");
@@ -70,14 +71,10 @@ hla_vector<T> operator/ (hla_vector<T>& l_vec, hla_vector<T>& r_vec) {
     // initialize a new vector to contain addition
     std::vector<T> new_vec(l_vec.size);
     
-    for (size_t i; i < l_vec.size; ++i) {
+    for (std::size_t i; i < l_vec.size; ++i) {
         new_vec[i] = l_vec[i] / r_vec[i];
     };
     
     return hla_vector<T>(new_vec);
     
-};
-
-int main() {
-    return 0;
 };
