@@ -9,7 +9,7 @@ int main() {
         x[i] = i;
     };
     
-    hla_vector<int> vec1 = hla_vector<int>::hla_vector(x);
+    hla_vector<int> vec1 (x);
 
     return 0;
 };
