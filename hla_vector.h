@@ -132,6 +132,12 @@ public:
      */
     double dot(hla_vector& r_vec);
     
+    /* normalizes the vector into a unit vector
+     *
+     * @return normalized m_vec
+     */
+    hla_vector& normalize();
+    
 private:
     
 private:

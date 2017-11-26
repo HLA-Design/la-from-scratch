@@ -228,6 +228,18 @@ double hla_vector<T>::dot(hla_vector<T>& r_vec) {
     
 };
 
+/* normalizes the vector into a unit vector */
+template <typename T>
+hla_vector<T>& hla_vector<T>::normalize() {
+    
+    double length = norm_2();
+    
+    for (size_t i; i < m_vec.size; ++i) {
+        m_vec /= length;
+    };
+    
+};
+
 int main() {
     return 0;
 };
