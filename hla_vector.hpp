@@ -35,7 +35,7 @@ public:
      *
      * @return value at index i
      */
-    T& operator[](std::size_t idx);
+    const T& operator[](std::size_t idx) const;
     
     /* addition equals overload
      *

@@ -36,7 +36,7 @@ std::size_t hla_vector<T>::size() const
 
 /* access overload */
 template <typename T>
-T& hla_vector<T>::operator[](std::size_t idx)
+const T& hla_vector<T>::operator[](std::size_t idx) const
 {
   if (idx >= m_vec.size()) {
     throw std::length_error("Accessing vector out of range");
@@ -57,6 +57,8 @@ hla_vector<T>& hla_vector<T>::operator+=(const hla_vector<T>& r_vec) {
         m_vec[i] += r_vec[i];
     }
     
+    return *this;
+    
 }
 
 /* subtraction equals overload */
@@ -71,6 +73,8 @@ hla_vector<T>& hla_vector<T>::operator-=(const hla_vector<T>& r_vec) {
         m_vec[i] -= r_vec[i];
     }
     
+    return *this;
+    
 }
 
 /* multiplication equals overload - hadamard product */
@@ -84,6 +88,8 @@ hla_vector<T>& hla_vector<T>::operator*=(const hla_vector<T>& r_vec) {
     for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] *= r_vec[i];
     }
+    
+    return *this;
 
 }
 
@@ -99,6 +105,8 @@ hla_vector<T>& hla_vector<T>::operator/=(const hla_vector<T>& r_vec) {
         m_vec[i] /= r_vec[i];
     }
     
+    return *this;
+    
 }
 
 /* addition equals overload - scalar broadcast */
@@ -108,6 +116,8 @@ hla_vector<T>& hla_vector<T>::operator+=(const T& scalar) {
     for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] += scalar;
     }
+    
+    return *this;
     
 }
 
@@ -119,6 +129,8 @@ hla_vector<T>& hla_vector<T>::operator-=(const T& scalar) {
         m_vec[i] -= scalar;
     }
     
+    return *this;
+    
 }
 
 /* multiplication equals overload - scalar broadcast */
@@ -129,6 +141,8 @@ hla_vector<T>& hla_vector<T>::operator*=(const T& scalar) {
         m_vec[i] *= scalar;
     }
     
+    return *this;
+    
 }
 
 /* multiplication equals overload - scalar broadcast */
@@ -138,6 +152,8 @@ hla_vector<T>& hla_vector<T>::operator/=(const T& scalar) {
     for (std::size_t i = 0; i < m_vec.size(); ++i) {
         m_vec[i] /= scalar;
     }
+    
+    return *this;
     
 }
 
