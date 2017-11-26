@@ -34,7 +34,7 @@ std::size_t hla_vector<T>::size() const
   return m_vec.size();
 }
 
-/* access overload */
+/* access overload - const */
 template <typename T>
 const T& hla_vector<T>::operator[](std::size_t idx) const
 {
@@ -43,6 +43,17 @@ const T& hla_vector<T>::operator[](std::size_t idx) const
   }
 
   return m_vec[idx];
+}
+
+/* access overload */
+template <typename T>
+T& hla_vector<T>::operator[](std::size_t idx)
+{
+    if (idx >= m_vec.size()) {
+        throw std::length_error("Accessing vector out of range");
+    }
+    
+    return m_vec[idx];
 }
 
 /* addition equals overload */

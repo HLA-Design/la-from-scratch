@@ -29,13 +29,21 @@ public:
      */
     std::size_t size() const;
     
-    /* access overload
+    /* access overload - const
      *
      * @param idx index of vector to access
      *
      * @return value at index i
      */
     const T& operator[](std::size_t idx) const;
+    
+    /* access overload
+     *
+     * @param idx index of vector to access
+     *
+     * @return value at index i
+     */
+    T& operator[](std::size_t idx);
     
     /* addition equals overload
      *
