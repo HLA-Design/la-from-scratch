@@ -198,6 +198,26 @@ hla_vector<T> operator* (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec)
 template <typename T>
 hla_vector<T> operator/ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
+/* addition overload - vec + scalar
+ *
+ * @param l_vec left vector to be added
+ * @param r_scalar right scalar to be added
+ *
+ * @return new vector equal to the broadcast sum of l_vec and r_scalar
+ */
+template <typename T>
+hla_vector<T> operator+ (const hla_vector<T>& l_vec, const T& r_scalar);
+
+/* addition overload - scalar + vec
+ *
+ * @param l_scalar left scalar to be added
+ * @param r_vec right vector to be added
+ *
+ * @return new vector equal to the broadcast sum of l_vec and r_scalar
+ */
+template <typename T>
+hla_vector<T> operator+ (const T& l_scalar, const hla_vector<T>& r_vec);
+
 /* normalizes the vector into a unit vector
  *
  * @return normalized m_vec

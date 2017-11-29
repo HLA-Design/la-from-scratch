@@ -219,6 +219,15 @@ int main() {
         std::cout << e.what();
     }
     
+    // test addition - vec + scalar - util function
+    std::cout << "\n\n" << "test vec1 + scalar" << "\n";
+    
+    hla_vector<int> add_scalar_vec_l = vec1 + scalar;
+    hla_vector<int> add_scalar_vec_r = scalar + vec1;
+    
+    add_scalar_vec_l.print();
+    add_scalar_vec_r.print();
+    
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
     
