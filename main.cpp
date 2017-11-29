@@ -269,6 +269,29 @@ int main() {
     
     std::cout << sim_12;
     
+    std::cout << "\n\n" << "exception after cosine_sim(vec1, vec3):" << "\n";
+    
+    try {
+        double sim_error = cosine_sim(vec1, vec3);
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+ 
+    // test cosine similarity using normalize function
+    std::cout << "\n\n" << "test cosine_sim_norm(vec1, vec2)" << "\n";
+    
+    double sim_12_norm = cosine_sim_norm(vec1, vec2);
+    
+    std::cout << sim_12_norm;
+    
+    std::cout << "\n\n" << "exception after cosine_sim_norm(vec1, vec3):" << "\n";
+    
+    try {
+        double sim_norm_error = cosine_sim_norm(vec1, vec3);
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
     // end of test new lines
     std::cout << "\n\n";
     

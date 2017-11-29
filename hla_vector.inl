@@ -443,25 +443,6 @@ hla_vector<T> operator* (const T& l_scalar, const hla_vector<T>& r_vec) {
     
 }
 
-/* normalizes the vector into a unit vector */
- template <typename T>
- hla_vector<double> normalize(const hla_vector<T>& vec) {
-     
-     // construct a new hla_vector of same size
-     std::vector<double> std_vec(vec.size());
-     hla_vector<double> norm_vec(std_vec);
-     
-     double length = vec.norm_2();
-     
-     for (std::size_t i = 0; i < vec.size(); ++i) {
-         double entry = static_cast<double> (vec[i]);
-         norm_vec[i] = entry / length;
-     }
-     
-     return norm_vec;
-     
- }
-
 /* division overload - vec / scalar */
 template <typename T>
 hla_vector<T> operator/ (const hla_vector<T>& l_vec, const T& r_scalar) {
@@ -494,6 +475,25 @@ hla_vector<T> operator/ (const T& l_scalar, const hla_vector<T>& r_vec) {
     
 }
 
+/* normalizes the vector into a unit vector */
+template <typename T>
+hla_vector<double> normalize(const hla_vector<T>& vec) {
+    
+    // construct a new hla_vector of same size
+    std::vector<double> std_vec(vec.size());
+    hla_vector<double> norm_vec(std_vec);
+    
+    double length = vec.norm_2();
+    
+    for (std::size_t i = 0; i < vec.size(); ++i) {
+        double entry = static_cast<double> (vec[i]);
+        norm_vec[i] = entry / length;
+    }
+    
+    return norm_vec;
+    
+}
+
 /* cosine similarity of two vectors */
 template <typename T>
 double cosine_sim(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
@@ -523,6 +523,24 @@ double cosine_sim(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
     length2 = pow(length2, 0.5);
     
     return dot_prod / (length1 * length2);
+    
+}
+
+/* cosine similarity of two vectors - using methods */
+template <typename T>
+double cosine_sim_norm(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
+    // demonstrate/test that using normalization increases memory usage
+    
+    // check vectors are the same length
+    if (vec1.size() != vec2.size()) {
+        throw std::length_error("Cannot compute cosine similarity of different length vectors.");
+    }
+    
+    // store normalized vectors
+    hla_vector<double> norm_vec1 = normalize(vec1);
+    hla_vector<double> norm_vec2 = normalize(vec2);
+    
+    return norm_vec1.dot(norm_vec2);
     
 }
 
