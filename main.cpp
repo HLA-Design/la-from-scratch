@@ -162,7 +162,14 @@ int main() {
     } catch (std::length_error& e) {
         std::cout << e.what();
     }
-     
+    
+    // test normalize vector util function
+    std::cout << "\n\n" << "test normalize(vec1)" << "\n";
+    
+    hla_vector<double> norm_vec1 = normalize(vec1);
+    
+    norm_vec1.print();
+    
     std::cout << "\n\n";
     
     return 0;

@@ -185,7 +185,7 @@ double hla_vector<T>::norm_1() {
 
 /* 2-norm computation */
 template <typename T>
-double hla_vector<T>::norm_2() {
+double hla_vector<T>::norm_2() const {
     
     double norm = 0.0;
     
@@ -259,22 +259,6 @@ double hla_vector<T>::dot(hla_vector<T>& r_vec) {
     return dot_prod;
     
 }
-
-/* normalizes the vector into a unit vector */
-/*
-template <typename T>
-hla_vector<T>& hla_vector<T>::normalize() {
-    
-    double length = this->norm_2();
-    
-    for (std::size_t i; i < m_vec.size(); ++i) {
-        m_vec[i] /= length;
-    }
-    
-    return *this;
-    
-}
-*/
  
 /* prints the contents of the vector */
 template <typename T>
@@ -289,8 +273,31 @@ void hla_vector<T>::print() {
     std::cout << "]";
     
     return;
-    
 }
+    
+/******************
+ * UTIL FUNCTIONS *
+ ******************/
+
+/* normalizes the vector into a unit vector */
+ template <typename T>
+ hla_vector<double> normalize(const hla_vector<T>& vec) {
+     
+     // construct a new hla_vector of same size
+     std::vector<double> std_vec(vec.size());
+     hla_vector<double> norm_vec(std_vec);
+     
+     double length = vec.norm_2();
+     
+     for (std::size_t i = 0; i < vec.size(); ++i) {
+         double entry = static_cast<double> (vec[i]);
+         norm_vec[i] = entry / length;
+     }
+     
+     return norm_vec;
+     
+ }
+
 /*
 int main() {
     return 0;

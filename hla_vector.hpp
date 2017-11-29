@@ -119,7 +119,7 @@ public:
      *
      * @return 2 norm of the vector
      */
-    double norm_2();
+    double norm_2() const;
     
     /* infinity-norm computation
      *
@@ -143,12 +143,6 @@ public:
      */
     double dot(hla_vector& r_vec);
     
-    /* normalizes the vector into a unit vector
-     *
-     * @return normalized m_vec
-     */
-//    hla_vector& normalize();
-    
     /* prints the contents of the vector */
     void print();
     
@@ -159,5 +153,17 @@ private:
 };
 
 #include "hla_vector.inl"
+
+/******************
+ * UTIL FUNCTIONS *
+ ******************/
+
+/* normalizes the vector into a unit vector
+ *
+ * @return normalized m_vec
+ */
+template <typename T>
+hla_vector<double> normalize(const hla_vector<T>& vec);
+
 
 #endif
