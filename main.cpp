@@ -246,6 +246,15 @@ int main() {
     mult_scalar_vec_l.print();
     mult_scalar_vec_r.print();
     
+    // test division - vec1 / scalar - util functions
+    std::cout << "\n\n" << "test vec1 * scalar" << "\n";
+    
+    hla_vector<int> div_scalar_vec_l = vec1 / scalar;
+    hla_vector<int> div_scalar_vec_r = scalar / vec1;
+    
+    div_scalar_vec_l.print();
+    div_scalar_vec_r.print();
+    
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
     
