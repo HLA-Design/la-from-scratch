@@ -163,6 +163,20 @@ int main() {
         std::cout << e.what();
     }
     
+    // test vector addition util function
+    std::cout << "\n\n" << "test vec1 + vec2" << "\n";
+    hla_vector<int> add_vec = vec1 + vec2;
+    
+    add_vec.print();
+    
+    std::cout << "\n\n" << "exception after vec1 + vec3:" << "\n";
+    
+    try {
+        hla_vector<int> add_vec_error = vec1 + vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
     

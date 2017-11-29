@@ -170,7 +170,7 @@ hla_vector<T>& hla_vector<T>::operator/=(const T& scalar) {
 
 /* 1-norm computation */
 template <typename T>
-double hla_vector<T>::norm_1() {
+double hla_vector<T>::norm_1() const {
     
     double norm = 0.0;
     
@@ -200,7 +200,7 @@ double hla_vector<T>::norm_2() const {
 
 /* infinity-norm computation */
 template <typename T>
-double hla_vector<T>::norm_inf() {
+double hla_vector<T>::norm_inf() const {
     
     double norm = - std::numeric_limits<double>::infinity();
     
@@ -217,7 +217,7 @@ double hla_vector<T>::norm_inf() {
 
 /* p-norm computation */
 template <typename T>
-double hla_vector<T>::norm(double& p) {
+double hla_vector<T>::norm(double& p) const {
     
     // check for infinity norm
     if (isinf(p)) {
@@ -278,6 +278,26 @@ void hla_vector<T>::print() {
 /******************
  * UTIL FUNCTIONS *
  ******************/
+
+/* addition overload */
+template <typename T>
+hla_vector<T> operator+ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
+    
+    if (l_vec.size() != r_vec.size()) {
+        throw std::length_error("Cannot add vectors of different lengths.");
+    }
+    
+    // initialize a new vector to contain addition
+    std::vector<T> std_vec(l_vec.size());
+    hla_vector<T> new_vec(std_vec);
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        new_vec[i] = l_vec[i] + r_vec[i];
+    }
+    
+    return new_vec;
+    
+}
 
 /* normalizes the vector into a unit vector */
  template <typename T>

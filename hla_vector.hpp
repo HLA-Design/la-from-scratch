@@ -113,7 +113,7 @@ public:
      *
      * @return 1 norm of the vector
      */
-    double norm_1();
+    double norm_1() const;
     
     /* 2-norm computation
      *
@@ -125,7 +125,7 @@ public:
      *
      * @return infinity norm of the vector
      */
-    double norm_inf();
+    double norm_inf() const;
     
     /* generic p-norm computation
      *
@@ -133,7 +133,7 @@ public:
      *
      * @return p norm of the vector
      */
-    double norm(double& p);
+    double norm(double& p) const;
     
     /* computes the dot product with another vector
      *
@@ -157,6 +157,16 @@ private:
 /******************
  * UTIL FUNCTIONS *
  ******************/
+
+/* addition overload
+ *
+ * @param l_vec left vector to be added
+ * @param r_vec right vector to be added
+ *
+ * @return new vector equal to the sum of l_vec and r_vec
+ */
+template <typename T>
+hla_vector<T> operator+ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
 /* normalizes the vector into a unit vector
  *
