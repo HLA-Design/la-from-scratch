@@ -178,6 +178,16 @@ hla_vector<T> operator+ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec)
 template <typename T>
 hla_vector<T> operator- (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
+/* multiplication overload - hadamard product
+ *
+ * @param l_vec left vector to be multiplied
+ * @param r_vec right vector to be multiplied
+ *
+ * @return new vector equal to the elementwise multiplication of l_vec and r_vec
+ */
+template <typename T>
+hla_vector<T> operator* (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
+
 /* normalizes the vector into a unit vector
  *
  * @return normalized m_vec

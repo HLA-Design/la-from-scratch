@@ -190,6 +190,20 @@ int main() {
     } catch (std::length_error& e) {
         std::cout << e.what();
     }
+
+    // test vector multiplication util function
+    std::cout << "\n\n" << "test vec1 * vec2" << "\n";
+    hla_vector<int> mult_vec = vec1 * vec2;
+    
+    mult_vec.print();
+    
+    std::cout << "\n\n" << "exception after vec1 * vec3:" << "\n";
+    
+    try {
+        hla_vector<int> sub_vec_error = vec1 * vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
     
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
