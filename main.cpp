@@ -200,7 +200,21 @@ int main() {
     std::cout << "\n\n" << "exception after vec1 * vec3:" << "\n";
     
     try {
-        hla_vector<int> sub_vec_error = vec1 * vec3;
+        hla_vector<int> mult_vec_error = vec1 * vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
+    // test vector division util function
+    std::cout << "\n\n" << "test vec1 / vec2" << "\n";
+    hla_vector<int> div_vec = vec1 / vec2;
+    
+    div_vec.print();
+    
+    std::cout << "\n\n" << "exception after vec1 / vec3:" << "\n";
+    
+    try {
+        hla_vector<int> div_vec_error = vec1 / vec3;
     } catch (std::length_error& e) {
         std::cout << e.what();
     }
