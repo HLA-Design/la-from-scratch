@@ -417,6 +417,32 @@ hla_vector<T> operator- (const T& l_scalar, const hla_vector<T>& r_vec) {
     
 }
 
+/* multiplication overload - vec * scalar */
+template <typename T>
+hla_vector<T> operator* (const hla_vector<T>& l_vec, const T& r_scalar) {
+    
+    // initialize a new vector to contain operation
+    std::vector<T> std_vec(l_vec.size());
+    hla_vector<T> new_vec(std_vec);
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        new_vec[i] = l_vec[i] * r_scalar;
+    }
+    
+    return new_vec;
+    
+}
+
+/* multiplication overload - scalar * vec */
+template <typename T>
+hla_vector<T> operator* (const T& l_scalar, const hla_vector<T>& r_vec) {
+    
+    hla_vector<T> new_vec = r_vec * l_scalar;
+    
+    return new_vec;
+    
+}
+
 /* normalizes the vector into a unit vector */
  template <typename T>
  hla_vector<double> normalize(const hla_vector<T>& vec) {

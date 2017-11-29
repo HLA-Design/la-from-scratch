@@ -228,7 +228,7 @@ int main() {
     add_scalar_vec_l.print();
     add_scalar_vec_r.print();
     
-    // test addition - vec1 - scalar - util functions
+    // test subtraction - vec1 - scalar - util functions
     std::cout << "\n\n" << "test vec1 - scalar" << "\n";
 
     hla_vector<int> sub_scalar_vec_l = vec1 - scalar;
@@ -236,6 +236,15 @@ int main() {
     
     sub_scalar_vec_l.print();
     sub_scalar_vec_r.print();
+    
+    // test multiplication - vec1 * scalar - util functions
+    std::cout << "\n\n" << "test vec1 * scalar" << "\n";
+    
+    hla_vector<int> mult_scalar_vec_l = vec1 * scalar;
+    hla_vector<int> mult_scalar_vec_r = scalar * vec1;
+    
+    mult_scalar_vec_l.print();
+    mult_scalar_vec_r.print();
     
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
