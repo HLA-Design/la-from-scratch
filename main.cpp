@@ -262,6 +262,14 @@ int main() {
     
     norm_vec1.print();
     
+    // test cosine similarity utility function
+    std::cout << "\n\n" << "test cosine_sim(vec1, vec2)" << "\n";
+    
+    double sim_12 = cosine_sim(vec1, vec2);
+    
+    std::cout << sim_12;
+    
+    // end of test new lines
     std::cout << "\n\n";
     
     return 0;

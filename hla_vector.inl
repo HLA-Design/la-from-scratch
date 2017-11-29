@@ -494,6 +494,38 @@ hla_vector<T> operator/ (const T& l_scalar, const hla_vector<T>& r_vec) {
     
 }
 
+/* cosine similarity of two vectors */
+template <typename T>
+double cosine_sim(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
+    // not using normalize function to reduce memory usage
+    // not using norm_2 / * methods as to reduce number times we traverse each vector
+    
+    // check vectors are the same length
+    if (vec1.size() != vec2.size()) {
+        throw std::length_error("Cannot compute cosine similarity of different length vectors.");
+    }
+    
+    // store the length and dot product of each vector
+    double length1 = 0.0;
+    double length2 = 0.0;
+    double dot_prod = 0.0;
+    
+    // traverse each vector, computing running sum of sqr entries and dot prod
+    for (std::size_t i = 0; i < vec1.size(); ++i) {
+        double entry1 = static_cast<double> (vec1[i]);
+        double entry2 = static_cast<double> (vec2[i]);
+        length1 += pow(entry1, 2);
+        length2 += pow(entry2, 2);
+        dot_prod += entry1 * entry2;
+    }
+    
+    length1 = pow(length1, 0.5);
+    length2 = pow(length2, 0.5);
+    
+    return dot_prod / (length1 * length2);
+    
+}
+
 /*
 int main() {
     return 0;

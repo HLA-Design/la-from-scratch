@@ -285,5 +285,14 @@ hla_vector<T> operator/ (const T& l_scalar, const hla_vector<T>& r_vec);
 template <typename T>
 hla_vector<double> normalize(const hla_vector<T>& vec);
 
+/* cosine similarity of two vectors
+ *
+ * @param vec1 any vector of size n
+ * @param vec2 any vector of size n
+ *
+ * @return cosine similarity of vec1 and vec2
+ */
+template <typename T>
+double cosine_sim(const hla_vector<T>& vec1, const hla_vector<T>& vec2);
 
 #endif
