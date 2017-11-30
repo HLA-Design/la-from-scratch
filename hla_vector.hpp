@@ -388,7 +388,7 @@ hla_vector<bool> operator<= (const T& l_scalar, const hla_vector<T>& r_vec);
 template <typename T>
 hla_vector<bool> operator> (const hla_vector<T>& l_vec, const T& r_scalar);
 
-/* greater than overload - scalar < vec
+/* greater than overload - scalar > vec
  *
  * @param l_scalar left scalar to be compared
  * @param r_vec right vector of size n to be compared
@@ -397,6 +397,26 @@ hla_vector<bool> operator> (const hla_vector<T>& l_vec, const T& r_scalar);
  */
 template <typename T>
 hla_vector<bool> operator> (const T& l_scalar, const hla_vector<T>& r_vec);
+
+/* greater than or equal overload - vec >= scalar
+ *
+ * @param l_vec left vector of size n to be compared
+ * @param r_scalar right scalar to be compared
+ *
+ * @return boolean vector where @return[i] = true if l_vec[i] >= r_scalar
+ */
+template <typename T>
+hla_vector<bool> operator>= (const hla_vector<T>& l_vec, const T& r_scalar);
+
+/* greater than or equal overload - scalar >= vec
+ *
+ * @param l_scalar left scalar to be compared
+ * @param r_vec right vector of size n to be compared
+ *
+ * @return boolean vector where @return[i] = true if l_scalar >= r_vec[i]
+ */
+template <typename T>
+hla_vector<bool> operator>= (const T& l_scalar, const hla_vector<T>& r_vec);
 
 /* normalizes the vector into a unit vector
  *
