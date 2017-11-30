@@ -554,7 +554,7 @@ hla_vector<bool> operator> (const hla_vector<T>& l_vec, const hla_vector<T>& r_v
     
 }
 
-/* greater than overload */
+/* greater than or equals to overload */
 template <typename T>
 hla_vector<bool> operator>= (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
     
@@ -564,6 +564,59 @@ hla_vector<bool> operator>= (const hla_vector<T>& l_vec, const hla_vector<T>& r_
     }
     
     hla_vector<bool> comp_vec = r_vec <= l_vec;
+    
+    return comp_vec;
+    
+}
+
+/* equals to overload */
+template <typename T>
+hla_vector<bool> operator== (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
+    
+    // check vectors are the same length
+    if (l_vec.size() != r_vec.size()) {
+        throw std::length_error("Cannot compare different length vectors (==).");
+    }
+    
+    std::vector<bool> std_vec (l_vec.size());
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        std_vec[i] = l_vec[i] == r_vec[i];
+    }
+    
+    hla_vector<bool> comp_vec (std_vec);
+    
+    return comp_vec;
+    
+}
+
+/* less than overload - vec < scalar */
+template <typename T>
+hla_vector<bool> operator< (const hla_vector<T>& l_vec, const T& r_scalar) {
+    
+    std::vector<bool> std_vec (l_vec.size());
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        std_vec[i] = l_vec[i] < r_scalar;
+    }
+    
+    hla_vector<bool> comp_vec (std_vec);
+    
+    return comp_vec;
+    
+}
+
+/* less than overload - scalar < vec */
+template <typename T>
+hla_vector<bool> operator< (const T& l_scalar, const hla_vector<T>& r_vec) {
+    
+    std::vector<bool> std_vec (r_vec.size());
+    
+    for (std::size_t i = 0; i < r_vec.size(); ++i) {
+        std_vec[i] = l_scalar < r_vec[i];
+    }
+    
+    hla_vector<bool> comp_vec (std_vec);
     
     return comp_vec;
     

@@ -308,6 +308,27 @@ int main() {
         std::cout << e.what();
     }
     
+    // test vec1 == vec2
+    std::cout << "\n\n" << "test vec1 == vec2" << "\n";
+    
+    hla_vector<bool> eq_check = vec1 == vec2;
+    eq_check.print();
+    
+    try {
+        hla_vector<bool> eq_error = vec1 == vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
+    // test vec1 < scalar
+    std::cout << "\n\n" << "test vec1 < scalar" << "\n";
+    
+    hla_vector<bool> lts1_check = vec1 < scalar;
+    hla_vector<bool> lts2_check = scalar < vec1;
+    
+    lts1_check.print();
+    lts2_check.print();
+    
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
     
