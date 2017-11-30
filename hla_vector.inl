@@ -539,6 +539,21 @@ hla_vector<bool> operator<= (const hla_vector<T>& l_vec, const hla_vector<T>& r_
     
 }
 
+/* greater than overload */
+template <typename T>
+hla_vector<bool> operator> (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
+    
+    // check vectors are the same length
+    if (l_vec.size() != r_vec.size()) {
+        throw std::length_error("Cannot compare different length vectors (>).");
+    }
+    
+    hla_vector<bool> comp_vec = r_vec < l_vec;
+    
+    return comp_vec;
+    
+}
+
 /* normalizes the vector into a unit vector */
 template <typename T>
 hla_vector<double> normalize(const hla_vector<T>& vec) {

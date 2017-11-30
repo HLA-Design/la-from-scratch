@@ -284,6 +284,18 @@ int main() {
         std::cout << e.what();
     }
     
+    // test vec1 > vec2
+    std::cout << "\n\n" << "test vec1 > vec2" << "\n";
+    
+    hla_vector<bool> gt_check = vec1 > vec2;
+    gt_check.print();
+    
+    try {
+        hla_vector<bool> gt_error = vec1 > vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
     
