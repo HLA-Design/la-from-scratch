@@ -622,6 +622,38 @@ hla_vector<bool> operator< (const T& l_scalar, const hla_vector<T>& r_vec) {
     
 }
 
+/* less than or equals overload - vec <= scalar */
+template <typename T>
+hla_vector<bool> operator<= (const hla_vector<T>& l_vec, const T& r_scalar) {
+    
+    std::vector<bool> std_vec (l_vec.size());
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        std_vec[i] = l_vec[i] <= r_scalar;
+    }
+    
+    hla_vector<bool> comp_vec (std_vec);
+    
+    return comp_vec;
+    
+}
+
+/* less than or equals overload - scalar <= vec */
+template <typename T>
+hla_vector<bool> operator<= (const T& l_scalar, const hla_vector<T>& r_vec) {
+    
+    std::vector<bool> std_vec (r_vec.size());
+    
+    for (std::size_t i = 0; i < r_vec.size(); ++i) {
+        std_vec[i] = l_scalar <= r_vec[i];
+    }
+    
+    hla_vector<bool> comp_vec (std_vec);
+    
+    return comp_vec;
+    
+}
+
 /* normalizes the vector into a unit vector */
 template <typename T>
 hla_vector<double> normalize(const hla_vector<T>& vec) {
