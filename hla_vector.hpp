@@ -141,7 +141,7 @@ public:
      *
      * @return dot product of this vec and r_vec
      */
-    double dot(hla_vector& r_vec);
+    double dot(const hla_vector& r_vec) const;
     
     /* prints the contents of the vector */
     void print();
@@ -304,5 +304,15 @@ double cosine_sim(const hla_vector<T>& vec1, const hla_vector<T>& vec2);
  */
 template <typename T>
 double cosine_sim_norm(const hla_vector<T>& vec1, const hla_vector<T>& vec2);
+
+/* cosine similarity of two vectors - using norm_2 and dot
+ *
+ * @param vec1 any vector of size n
+ * @param vec2 any vector of size n
+ *
+ * @return cosine similarity of vec1 and vec2
+ */
+template <typename T>
+double cosine_sim_length(const hla_vector<T>& vec1, const hla_vector<T>& vec2);
 
 #endif

@@ -242,7 +242,7 @@ double hla_vector<T>::norm(double& p) const {
 
 /* computes the dot product with another vector */
 template <typename T>
-double hla_vector<T>::dot(hla_vector<T>& r_vec) {
+double hla_vector<T>::dot(const hla_vector<T>& r_vec) const {
     
     if (m_vec.size() != r_vec.size()) {
         throw std::length_error("Cannot compute dot product of different length vectors.");
@@ -526,7 +526,7 @@ double cosine_sim(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
     
 }
 
-/* cosine similarity of two vectors - using methods */
+/* cosine similarity of two vectors - using normalize */
 template <typename T>
 double cosine_sim_norm(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
     // demonstrate/test that using normalization increases memory usage
@@ -541,6 +541,24 @@ double cosine_sim_norm(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
     hla_vector<double> norm_vec2 = normalize(vec2);
     
     return norm_vec1.dot(norm_vec2);
+    
+}
+
+/* cosine similarity of two vectors - using norm_2 and dot */
+template <typename T>
+double cosine_sim_length(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
+    // demonstrate/test that using norm_2 and dot increases time
+    
+    // check vectors are the same length
+    if (vec1.size() != vec2.size()) {
+        throw std::length_error("Cannot compute cosine similarity of different length vectors.");
+    }
+    
+    double length1 = vec1.norm_2();
+    double length2 = vec2.norm_2();
+    double dot_prod = vec1.dot(vec2);
+    
+    return dot_prod / (length1 * length2);
     
 }
 

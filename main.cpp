@@ -292,6 +292,21 @@ int main() {
         std::cout << e.what();
     }
     
+    // test cosine similarity using norm_2 and dot
+    std::cout << "\n\n" << "test cosine_sim_length(vec1, vec2)" << "\n";
+    
+    double sim_12_length = cosine_sim_length(vec1, vec2);
+    
+    std::cout << sim_12_length;
+    
+    std::cout << "\n\n" << "exception after cosine_sim_length(vec1, vec3):" << "\n";
+    
+    try {
+        double sim_length_error = cosine_sim_length(vec1, vec3);
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
     // end of test new lines
     std::cout << "\n\n";
     
