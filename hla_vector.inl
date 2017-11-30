@@ -14,6 +14,14 @@ hla_vector<T>::hla_vector(const std::vector<T>& _vec)
 {
 }
 
+/*
+template <typename T>
+hla_vector(const std::vector<hla_vector<T> >& _vec)
+: m_vec (_vec)
+{
+}
+*/
+ 
 /* dtor */
 template <typename T>
 hla_vector<T>::~hla_vector()
@@ -259,18 +267,32 @@ double hla_vector<T>::dot(const hla_vector<T>& r_vec) const {
     return dot_prod;
     
 }
- 
+
+/* appends vector's entries to right of @param this */
+template <typename T>
+hla_vector<T>& hla_vector<T>::append(const hla_vector<T>& r_vec) {
+    
+    for (std::size_t i = 0; i < r_vec.size(); ++i) {
+        m_vec.push_back(r_vec[i]);
+    }
+    
+    return *this;
+    
+}
+
+
 /* prints the contents of the vector */
 template <typename T>
 void hla_vector<T>::print() {
     
     std::cout << "[";
     
-    for (std::size_t i = 0; i < m_vec.size(); ++i) {
-        std::cout << m_vec[i] << " ,";
+    // to size - 1 so we can omit last comma
+    for (std::size_t i = 0; i < m_vec.size() - 1; ++i) {
+        std::cout << m_vec[i] << ", ";
     }
     
-    std::cout << "]";
+    std::cout << m_vec[m_vec.size() - 1] << "]" << "\n";
     
     return;
 }
@@ -559,6 +581,25 @@ double cosine_sim_length(const hla_vector<T>& vec1, const hla_vector<T>& vec2) {
     double dot_prod = vec1.dot(vec2);
     
     return dot_prod / (length1 * length2);
+    
+}
+
+template <typename T>
+hla_vector<T> append(const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
+    
+    std::vector<T> std_vec (l_vec.size() + r_vec.size());
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        std_vec[i] = l_vec[i];
+    }
+    
+    for (std::size_t i = 0; i < r_vec.size(); ++i) {
+        std_vec[i + l_vec.size()] = r_vec[i];
+    }
+    
+    hla_vector<T> appended_vec (std_vec);
+    
+    return appended_vec;
     
 }
 

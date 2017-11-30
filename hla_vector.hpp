@@ -17,6 +17,8 @@ public:
     /* ctor */
     hla_vector(const std::vector<T>& _vec);
     
+//    hla_vector(const std::vector<hla_vector<T> >& _vec);
+    
     /* dtor */
     ~hla_vector();
     
@@ -142,6 +144,14 @@ public:
      * @return dot product of this vec and r_vec
      */
     double dot(const hla_vector& r_vec) const;
+    
+    /* appends vector's entries to right of @param this
+     *
+     * @param r_vec length m vector to be appended
+     *
+     * @return vector equal to @param r_vec appended to @param this
+     */
+    hla_vector& append(const hla_vector& r_vec);
     
     /* prints the contents of the vector */
     void print();
@@ -314,5 +324,16 @@ double cosine_sim_norm(const hla_vector<T>& vec1, const hla_vector<T>& vec2);
  */
 template <typename T>
 double cosine_sim_length(const hla_vector<T>& vec1, const hla_vector<T>& vec2);
+
+/* appends two vectors together making a new vector
+ *
+ * @param l_vec vector of size m
+ * @param r_vec vector of size n
+ *
+ * @return vector of size m + n with first m entries correspond to @param l_vec
+ *         and the last n entries correspond to @param r_vec
+ */
+template <typename T>
+hla_vector<T> append(const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
 #endif

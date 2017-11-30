@@ -163,6 +163,11 @@ int main() {
         std::cout << e.what();
     }
     
+    // test append
+    std::cout << "\n\n" << "test vec3.append(vec1)" << "\n";
+    vec3.append(vec1);
+    vec3.print();
+    
     // test vector addition util function
     std::cout << "\n\n" << "test vec1 + vec2" << "\n";
     hla_vector<int> add_vec = vec1 + vec2;
@@ -306,6 +311,15 @@ int main() {
     } catch (std::length_error& e) {
         std::cout << e.what();
     }
+    
+    // test append util function
+    std::cout << "\n\n" << "test append(vec1, vec2), vec1 and vec2 unchanged" << "\n";
+    
+    hla_vector<int> append_vec = append(vec1, vec2);
+    
+    append_vec.print();
+    vec1.print();
+    vec2.print();
     
     // end of test new lines
     std::cout << "\n\n";
