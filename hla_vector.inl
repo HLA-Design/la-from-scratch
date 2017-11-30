@@ -654,6 +654,22 @@ hla_vector<bool> operator<= (const T& l_scalar, const hla_vector<T>& r_vec) {
     
 }
 
+/* greater than overload - vec > scalar */
+template <typename T>
+hla_vector<bool> operator> (const hla_vector<T>& l_vec, const T& r_scalar) {
+    
+    return r_scalar < l_vec;
+    
+}
+
+/* greater than overload - scalar > vec */
+template <typename T>
+hla_vector<bool> operator> (const T& l_scalar, const hla_vector<T>& r_vec) {
+    
+    return r_vec < l_scalar;
+    
+}
+
 /* normalizes the vector into a unit vector */
 template <typename T>
 hla_vector<double> normalize(const hla_vector<T>& vec) {

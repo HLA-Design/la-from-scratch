@@ -338,6 +338,15 @@ int main() {
     ltes1_check.print();
     ltes2_check.print();
     
+    // test vec1 > scalar
+    std::cout << "\n\n" << "test vec1 > scalar" << "\n";
+    
+    hla_vector<bool> gts1_check = vec1 > scalar;
+    hla_vector<bool> gts2_check = scalar > vec1;
+    
+    gts1_check.print();
+    gts2_check.print();
+    
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
     
