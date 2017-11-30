@@ -497,6 +497,48 @@ hla_vector<T> operator/ (const T& l_scalar, const hla_vector<T>& r_vec) {
     
 }
 
+/* less than overload */
+template <typename T>
+hla_vector<bool> operator< (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
+    
+    // check vectors are the same length
+    if (l_vec.size() != r_vec.size()) {
+        throw std::length_error("Cannot compare different length vectors (<).");
+    }
+    
+    std::vector<bool> std_vec (l_vec.size());
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        std_vec[i] = l_vec[i] < r_vec[i];
+    }
+    
+    hla_vector<bool> comp_vec (std_vec);
+    
+    return comp_vec;
+    
+}
+
+/* less than or equals overload */
+template <typename T>
+hla_vector<bool> operator<= (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec) {
+    
+    // check vectors are the same length
+    if (l_vec.size() != r_vec.size()) {
+        throw std::length_error("Cannot compare different length vectors (<=).");
+    }
+    
+    std::vector<bool> std_vec (l_vec.size());
+    
+    for (std::size_t i = 0; i < l_vec.size(); ++i) {
+        std_vec[i] = l_vec[i] <= r_vec[i];
+    }
+    
+    hla_vector<bool> comp_vec (std_vec);
+    
+    return comp_vec;
+    
+}
+
 /* normalizes the vector into a unit vector */
 template <typename T>
 hla_vector<double> normalize(const hla_vector<T>& vec) {

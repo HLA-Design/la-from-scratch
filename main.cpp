@@ -260,6 +260,30 @@ int main() {
     div_scalar_vec_l.print();
     div_scalar_vec_r.print();
     
+    // test vec1 < vec2
+    std::cout << "\n\n" << "test vec1 < vec2" << "\n";
+    
+    hla_vector<bool> lt_check = vec1 < vec2;
+    lt_check.print();
+    
+    try {
+        hla_vector<bool> lt_error = vec1 < vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
+    // test vec1 <= vec2
+    std::cout << "\n\n" << "test vec1 <= vec2" << "\n";
+    
+    hla_vector<bool> lte_check = vec1 <= vec2;
+    lte_check.print();
+    
+    try {
+        hla_vector<bool> lte_error = vec1 <= vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+    
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
     
