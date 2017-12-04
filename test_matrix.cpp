@@ -24,21 +24,19 @@ int main() {
     hla_vector<int> vec4 (x4);
     hla_vector<int> vec5 (x5);
     
-//    std::vector<hla_vector<int> > std_mat (5);
-    
-//    std_mat[0] = x1;
-//    std_mat[1] = x2;
-//    std_mat[2] = x3;
-//    std_mat[3] = x4;
-//    std_mat[4] = x5;
-    
+    std::vector<hla_vector<int> > std_mat (5);
+    std_mat[0] = x1;
+    std_mat[1] = x2;
+    std_mat[2] = x3;
+    std_mat[3] = x4;
+    std_mat[4] = x5;
+
 //    hla_vector<hla_vector<int> > mat1_vec (std_mat);
     
     // test construction
-//    hla_matrix<int> mat1 (std_mat);
-    
-    hla_matrix<int> mat1;
-    
+    hla_matrix<int> mat1 (std_mat);
+    mat1.print();
+
     return 0;
     
 };

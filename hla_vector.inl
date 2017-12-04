@@ -7,6 +7,13 @@
 // Fwd declarations
 template <typename T> class hla_vector;
 
+/* default ctor */
+template <typename T>
+hla_vector<T>::hla_vector()
+: m_vec (std::vector<T>())
+{
+}
+
 /* ctor */
 template <typename T>
 hla_vector<T>::hla_vector(const std::vector<T>& _vec)
@@ -268,6 +275,13 @@ double hla_vector<T>::dot(const hla_vector<T>& r_vec) const {
     
 }
 
+/* adds a new element after the current last element*/
+template <typename T>
+void hla_vector<T>::push_back(const T& _val)
+{
+    m_vec.push_back(_val);
+}
+
 /* appends vector's entries to right of @param this */
 template <typename T>
 hla_vector<T>& hla_vector<T>::append(const hla_vector<T>& r_vec) {
@@ -284,16 +298,15 @@ hla_vector<T>& hla_vector<T>::append(const hla_vector<T>& r_vec) {
 /* prints the contents of the vector */
 template <typename T>
 void hla_vector<T>::print() {
-    
     std::cout << "[";
     
     // to size - 1 so we can omit last comma
     for (std::size_t i = 0; i < m_vec.size() - 1; ++i) {
         std::cout << m_vec[i] << ", ";
     }
-    
+
     std::cout << m_vec[m_vec.size() - 1] << "]" << "\n";
-    
+
     return;
 }
     

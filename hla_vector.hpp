@@ -14,6 +14,9 @@ private:
     
 public:
     
+    /* default ctor */
+    hla_vector();
+    
     /* ctor */
     hla_vector(const std::vector<T>& _vec);
     
@@ -144,7 +147,15 @@ public:
      * @return dot product of this vec and r_vec
      */
     double dot(const hla_vector& r_vec) const;
-    
+
+    /*
+     * adds a new element after the current last
+     * element of hla_vector; effectively increases
+     * container size by 1
+     * @param _val input value to be appended
+     */
+    void push_back(const T& _val);
+ 
     /* appends vector's entries to right of @param this
      *
      * @param r_vec length m vector to be appended
@@ -154,7 +165,7 @@ public:
     hla_vector& append(const hla_vector& r_vec);
     
     /* prints the contents of the vector */
-    void print();
+    void print() ;
     
 private:
     
