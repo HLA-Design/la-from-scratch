@@ -17,13 +17,16 @@ int main() {
         x4[i] = i + 1;
         x5[i] = i + 2;
     }
-    
+
     hla_vector<int> vec1 (x1);
     hla_vector<int> vec2 (x2);
     hla_vector<int> vec3 (x3);
     hla_vector<int> vec4 (x4);
     hla_vector<int> vec5 (x5);
-    
+
+    // -------------------------------------------------------------------------
+    // TEST 1 : Construction from std::vector <hla_vector<T> >
+    // -------------------------------------------------------------------------
     std::vector<hla_vector<int> > std_mat (5);
     std_mat[0] = x1;
     std_mat[1] = x2;
@@ -31,11 +34,25 @@ int main() {
     std_mat[3] = x4;
     std_mat[4] = x5;
 
-//    hla_vector<hla_vector<int> > mat1_vec (std_mat);
-    
     // test construction
     hla_matrix<int> mat1 (std_mat);
+    std::cout << std::endl << "Printing mat1 constructed from std::vector<hla_vector<int> > " << std::endl;
     mat1.print();
+
+    // -------------------------------------------------------------------------
+    // TEST 2 : Construction from hla_vector::vector <hla_vector<T> >
+    // -------------------------------------------------------------------------
+    hla_vector<hla_vector<int> > hla_mat; // default ctor
+    hla_mat.push_back(vec1);
+    hla_mat.push_back(vec2);
+    hla_mat.push_back(vec3);
+    hla_mat.push_back(vec4);
+    hla_mat.push_back(vec5);
+
+    // test construction
+    hla_matrix<int> mat2 (hla_mat);
+    std::cout << std::endl << "Printing mat2 constructed from hla::vector<hla_vector<int> > " << std::endl;
+    mat2.print();
 
     return 0;
     

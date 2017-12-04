@@ -10,7 +10,8 @@ class hla_vector {
 
 private:
     // data members
-    std::vector<T> m_vec;
+    typedef std::vector<T> ElemList;
+    ElemList m_vec;
     
 public:
     
@@ -33,7 +34,15 @@ public:
      * @return size of the vector
      */
     std::size_t size() const;
-    
+
+    /* iterators */
+    typedef typename ElemList::iterator iterator;
+    typedef typename ElemList::const_iterator const_iterator;
+    iterator begin () { return m_vec.begin(); }
+    iterator end () { return m_vec.end(); }
+    const_iterator begin () const { return m_vec.begin(); }
+    const_iterator end () const { return m_vec.end(); }
+
     /* access overload - const
      *
      * @param idx index of vector to access
@@ -165,7 +174,7 @@ public:
     hla_vector& append(const hla_vector& r_vec);
     
     /* prints the contents of the vector */
-    void print() ;
+    void print() const;
     
 private:
     

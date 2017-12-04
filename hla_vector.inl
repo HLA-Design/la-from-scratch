@@ -297,7 +297,7 @@ hla_vector<T>& hla_vector<T>::append(const hla_vector<T>& r_vec) {
 
 /* prints the contents of the vector */
 template <typename T>
-void hla_vector<T>::print() {
+void hla_vector<T>::print() const {
     std::cout << "[";
     
     // to size - 1 so we can omit last comma

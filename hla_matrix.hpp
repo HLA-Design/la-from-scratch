@@ -30,7 +30,7 @@ public:
    ~hla_matrix ();
 
    /* print out the contents of the matrix */
-   void print();
+   void print() const;
 
 private:
     

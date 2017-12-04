@@ -36,7 +36,6 @@ hla_matrix<T>::hla_matrix(const std::vector<hla_vector<T> >& _vec)
 }
 
 /* ctor */
-// TODO: check if it works...may need a size method
 template <typename T>
 hla_matrix<T>::hla_matrix(const hla_vector<hla_vector<T> >& _vec)
 {
@@ -54,12 +53,12 @@ hla_matrix<T>::~hla_matrix()
 
 /* print out contents of this matrix */
 template <typename T>
-void hla_matrix<T>::print()
+void hla_matrix<T>::print() const
 {
-  std::cout << "[" << std::endl;
+  std::cout << "[" << std::endl << std::endl;
 
-  for (std::size_t i = 0; i < m_matrix.size() - 1; ++i) {
-    m_matrix[i].print();
+  for (const auto& elem : m_matrix) {
+    elem.print();
     std::cout << std::endl;
   }
 
