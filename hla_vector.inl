@@ -311,7 +311,8 @@ hla_vector<T> operator+ (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec)
     
     // initialize a new vector to contain operation
     std::vector<T> std_vec(l_vec.size());
-    hla_vector<T> new_vec(std_vec);
+    // hla_vector<T> new_vec(std_vec);
+    hla_vector<T> new_vec = new hla_vector<T> (std_vec);
     
     for (std::size_t i = 0; i < l_vec.size(); ++i) {
         new_vec[i] = l_vec[i] + r_vec[i];
