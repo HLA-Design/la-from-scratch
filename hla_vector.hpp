@@ -10,9 +10,13 @@ class hla_vector {
 
 private:
     // data members
-    std::vector<T> m_vec;
+    typedef std::vector<T> ElemList;
+    ElemList m_vec;
     
 public:
+    
+    /* default ctor */
+    hla_vector();
     
     /* ctor */
     hla_vector(const std::vector<T>& _vec);
@@ -30,7 +34,15 @@ public:
      * @return size of the vector
      */
     std::size_t size() const;
-    
+
+    /* iterators */
+    typedef typename ElemList::iterator iterator;
+    typedef typename ElemList::const_iterator const_iterator;
+    iterator begin () { return m_vec.begin(); }
+    iterator end () { return m_vec.end(); }
+    const_iterator begin () const { return m_vec.begin(); }
+    const_iterator end () const { return m_vec.end(); }
+
     /* access overload - const
      *
      * @param idx index of vector to access
@@ -144,7 +156,15 @@ public:
      * @return dot product of this vec and r_vec
      */
     double dot(const hla_vector& r_vec) const;
-    
+
+    /*
+     * adds a new element after the current last
+     * element of hla_vector; effectively increases
+     * container size by 1
+     * @param _val input value to be appended
+     */
+    void push_back(const T& _val);
+ 
     /* appends vector's entries to right of @param this
      *
      * @param r_vec length m vector to be appended
@@ -154,7 +174,7 @@ public:
     hla_vector& append(const hla_vector& r_vec);
     
     /* prints the contents of the vector */
-    void print();
+    void print() const;
     
 private:
     
