@@ -38,6 +38,12 @@ public:
     */
    hla_vector<std::size_t> size() const;
 
+   /* returns the number of columns in the matrix
+    *
+    * @return the number of columns in the matrix
+    */
+   std::size_t n_col() const;
+
    /* access overload - const
     *
     * @param column idx index of matrix to access
@@ -53,6 +59,15 @@ public:
    * @return hla_vector at column index i
    */
   hla_vector<T>& operator[](std::size_t idx);
+
+  /* returns value at specified row and column
+   *
+   * @param row row index of element
+   * @param col col index of element
+   *
+   * @return the value at the specified row and col index
+   */
+  //const T& get(std::size_t row, std:: size_t col) const;
 
 private:
 

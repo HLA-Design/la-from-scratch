@@ -80,6 +80,14 @@ hla_vector<std::size_t> hla_matrix<T>::size() const {
   return size_vec;
 }
 
+/* returns the number of columns in the matrix */
+template <typename T>
+std::size_t hla_matrix<T>::n_col() const {
+
+  return m_matrix.size();
+
+}
+
 /* access overload - const */
 template <typename T>
 const hla_vector<T>& hla_matrix<T>::operator[](std::size_t idx) const {
@@ -103,3 +111,15 @@ hla_vector<T>& hla_matrix<T>::operator[](std::size_t idx) {
   return m_matrix[idx];
 
 }
+
+/* returns value at specified row and column */
+/*
+template <typename T>
+const T& hla_matrix<T>::get(std::size_t row, std:: size_t col) const {
+
+  if (idx >= m_matrix.size()) {
+    throw std::length_error("Accessing matrix out of column range");
+  }
+
+}
+*/

@@ -59,6 +59,10 @@ int main() {
 
     mat2.size().print();
 
+    /* test n_col method */
+    std::cout << std::endl << "test n_col method for mat1" << std::endl;
+    std::cout << std::endl << mat1.n_col() << std::endl;
+
     /* test access method */
     std::cout << std::endl << "testing access opperator" << std::endl;
 
