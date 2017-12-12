@@ -12,23 +12,23 @@ private:
     // data members
     typedef std::vector<T> ElemList;
     ElemList m_vec;
-    
+
 public:
-    
+
     /* default ctor */
     hla_vector();
-    
+
     /* ctor */
     hla_vector(const std::vector<T>& _vec);
-    
+
 //    hla_vector(const std::vector<hla_vector<T> >& _vec);
-    
+
     /* dtor */
     ~hla_vector();
-    
+
     /* copy constructor */
     hla_vector(const hla_vector& vec);
-    
+
     /* returns the size of the vector
      *
      * @return size of the vector
@@ -50,7 +50,7 @@ public:
      * @return value at index i
      */
     const T& operator[](std::size_t idx) const;
-    
+
     /* access overload
      *
      * @param idx index of vector to access
@@ -58,7 +58,7 @@ public:
      * @return value at index i
      */
     T& operator[](std::size_t idx);
-    
+
     /* addition equals overload
      *
      * @param r_vec right vector to be added
@@ -66,7 +66,7 @@ public:
      * @return result vector after addition
      */
     hla_vector& operator+=(const hla_vector& r_vec);
-    
+
     /* subtraction equals overload
      *
      * @param r_vec right vector to be subtracted
@@ -74,7 +74,7 @@ public:
      * @return result vector after subtraction
      */
     hla_vector& operator-=(const hla_vector& r_vec);
-    
+
     /* multiplication equals overload - hadamard product
      *
      * @param r_vec right vector to be multiplied elementwise
@@ -82,7 +82,7 @@ public:
      * @return result vector after elementwise multiplication
      */
     hla_vector& operator*=(const hla_vector& r_vec);
-    
+
     /* division equals overload
      *
      * @param r_vec right vector to be divided elementwise
@@ -90,7 +90,7 @@ public:
      * @return result vector after elementwise division
      */
     hla_vector& operator/=(const hla_vector& r_vec);
-    
+
     /* addition equals overload - scalar broadcast
      *
      * @param scalar to be added to each vector element
@@ -98,7 +98,7 @@ public:
      * @return result vector after broadcast addition
      */
     hla_vector& operator+=(const T& scalar);
-    
+
     /* subtraction equals overload - scalar broadcast
      *
      * @param scalar to be subtracted from each vector element
@@ -114,7 +114,7 @@ public:
      * @return result vector after broadcast multiplication
      */
     hla_vector& operator*=(const T& scalar);
-    
+
     /* division equals overload - scalar broadcast
      *
      * @param scalar to be divided with each vector element
@@ -122,25 +122,25 @@ public:
      * @return result vector after broadcast division
      */
     hla_vector& operator/=(const T& scalar);
-    
+
     /* 1-norm computation
      *
      * @return 1 norm of the vector
      */
     double norm_1() const;
-    
+
     /* 2-norm computation
      *
      * @return 2 norm of the vector
      */
     double norm_2() const;
-    
+
     /* infinity-norm computation
      *
      * @return infinity norm of the vector
      */
     double norm_inf() const;
-    
+
     /* generic p-norm computation
      *
      * @param p where p >= 1 - defines order of the norm
@@ -148,7 +148,7 @@ public:
      * @return p norm of the vector
      */
     double norm(double& p) const;
-    
+
     /* computes the dot product with another vector
      *
      * @param r_vec
@@ -164,7 +164,7 @@ public:
      * @param _val input value to be appended
      */
     void push_back(const T& _val);
- 
+
     /* appends vector's entries to right of @param this
      *
      * @param r_vec length m vector to be appended
@@ -172,14 +172,14 @@ public:
      * @return vector equal to @param r_vec appended to @param this
      */
     hla_vector& append(const hla_vector& r_vec);
-    
+
     /* prints the contents of the vector */
     void print() const;
-    
+
 private:
-    
+
 private:
-    
+
 };
 
 #include "hla_vector.inl"
