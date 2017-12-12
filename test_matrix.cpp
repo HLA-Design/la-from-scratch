@@ -59,12 +59,21 @@ int main() {
 
     mat2.size().print();
 
+    /* test access method */
+    std::cout << std::endl << "testing access opperator" << std::endl;
 
+    mat1[0].print();
+    mat1[3].print();
 
+    /* test can't access out of bounds */
+    std::cout << std::endl << "test exception handling of out of bounds access" <<std::endl;
+
+    try {
+        mat1[10];
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
 
     return 0;
-
-
-
 
 };

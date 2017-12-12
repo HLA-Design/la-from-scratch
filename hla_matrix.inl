@@ -79,3 +79,27 @@ hla_vector<std::size_t> hla_matrix<T>::size() const {
 
   return size_vec;
 }
+
+/* access overload - const */
+template <typename T>
+const hla_vector<T>& hla_matrix<T>::operator[](std::size_t idx) const {
+
+  if (idx >= m_matrix.size()) {
+    throw std::length_error("Accessing matrix out of column range");
+  }
+
+  return m_matrix[idx];
+
+}
+
+/* access overload */
+template <typename T>
+hla_vector<T>& hla_matrix<T>::operator[](std::size_t idx) {
+
+  if (idx >= m_matrix.size()) {
+    throw std::length_error("Accessing matrix out of column range");
+  }
+
+  return m_matrix[idx];
+
+}

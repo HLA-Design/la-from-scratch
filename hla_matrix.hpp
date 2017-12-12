@@ -33,10 +33,26 @@ public:
    void print() const;
 
    /* returns the size of the matrix as a hla_vector
-   *
-   * @return size of the vector as hla_vector. idx 0 = # rows, isx 1 = # cols
-   */
+    *
+    * @return size of the vector as hla_vector. idx 0 = # rows, isx 1 = # cols
+    */
    hla_vector<std::size_t> size() const;
+
+   /* access overload - const
+    *
+    * @param column idx index of matrix to access
+    *
+    * @return hla_vector at column index i
+    */
+   const hla_vector<T>& operator[](std::size_t idx) const;
+
+  /* access overload
+   *
+   * @param column idx index of matrix to access
+   *
+   * @return hla_vector at column index i
+   */
+  hla_vector<T>& operator[](std::size_t idx);
 
 private:
 
