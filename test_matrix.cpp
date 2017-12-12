@@ -178,6 +178,18 @@ int main() {
         std::cout << std::endl << e.what() << std::endl;
     }
 
+    /* test -= opperator - matrix */
+    std::cout << std::endl << "testing mat1 -= mat2" << std::endl;
+    mat1 -= mat2;
+    mat1.print();
+
+    std::cout << std::endl << "testing -= error on mat1 -= mat3 - different sized matrices" << std::endl;
+    try {
+        mat1 -= mat3;
+    } catch (std::length_error& e) {
+        std::cout << std::endl << e.what() << std::endl;
+    }
+
     return 0;
 
 };

@@ -83,6 +83,14 @@ public:
    */
   hla_matrix& operator+=(const hla_matrix& r_mat);
 
+  /* subtraction equals overload
+   *
+   * @param r_mat right matrix to subtract
+   *
+   * @return result matrix after subtraction
+   */
+  hla_matrix& operator-=(const hla_matrix& r_mat);
+
 private:
 
 private:

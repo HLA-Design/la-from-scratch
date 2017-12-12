@@ -151,3 +151,19 @@ hla_matrix<T>& hla_matrix<T>::operator+=(const hla_matrix<T>& r_mat) {
   return *this;
 
 }
+
+/* subtraction equals overload */
+template <typename T>
+hla_matrix<T>& hla_matrix<T>::operator-=(const hla_matrix<T>& r_mat) {
+
+  if (!(r_mat.size().is_equal(this->size()))) {
+    throw std::length_error("Cannot subtract matrices of different sizes");
+  }
+
+  for (std::size_t i = 0; i < this->n_col(); ++i) {
+    m_matrix[i] -= r_mat[i];
+  }
+
+  return *this;
+
+}
