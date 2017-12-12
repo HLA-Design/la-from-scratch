@@ -294,6 +294,23 @@ hla_vector<T>& hla_vector<T>::append(const hla_vector<T>& r_vec) {
 
 }
 
+/* checks if two vectors are exactly equal */
+template <typename T>
+bool hla_vector<T>::is_equal(const hla_vector<T>& r_vec) {
+
+  if (m_vec.size() != r_vec.size()) {
+    throw std::length_error("Cannot compare different length vectors.");
+  }
+
+  for (std::size_t i = 0; i < this->size(); ++i) {
+    if (m_vec[i] != r_vec[i]) {
+      return false;
+    }
+  }
+
+  return true;
+
+}
 
 /* prints the contents of the vector */
 template <typename T>

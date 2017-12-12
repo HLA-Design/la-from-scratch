@@ -173,6 +173,14 @@ public:
      */
     hla_vector& append(const hla_vector& r_vec);
 
+    /* checks if two vectors are exactly equal
+     *
+     * @param r_vec vector to be compared
+     *
+     * @return true if this[i] == r_vec[i] for all i. false otherwise
+     */
+    bool is_equal(const hla_vector& r_vec);
+
     /* prints the contents of the vector */
     void print() const;
 

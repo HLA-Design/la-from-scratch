@@ -7,6 +7,7 @@ int main() {
     std::vector<int> x(5);
     std::vector<int> y(5);
     std::vector<int> z(6);
+    std::vector<int> w(5);
     int scalar = 2;
     double p1 = 2.0;
     double p2 = std::numeric_limits<double>::infinity();
@@ -17,6 +18,7 @@ int main() {
         x[i - 1] = i;
         y[i - 1] = 6 - i;
         z[i - 1] = i;
+        w[i - 1] = i;
     }
 
     z[5] = 6;
@@ -25,6 +27,7 @@ int main() {
     hla_vector<int> vec1 (x);
     hla_vector<int> vec2 (y);
     hla_vector<int> vec3 (z);
+    hla_vector<int> vec4 (w);
 
     std::cout << "\n" << "Our vectors vec1, vec2, and vec3:" << "\n";
 
@@ -162,6 +165,11 @@ int main() {
     } catch (std::length_error& e) {
         std::cout << e.what();
     }
+
+    // test is_equal method
+    std::cout << "\n\n" << "test vec1.is_equal(vec1) and vec1.is_equal(vec2)" << "\n";
+    std::cout << std::endl << vec1.is_equal(vec4) << std::endl;
+    std::cout << std::endl << vec1.is_equal(vec2) << std::endl;
 
     // test append
     std::cout << "\n\n" << "test vec3.append(vec1)" << "\n";
@@ -446,6 +454,8 @@ int main() {
     append_vec.print();
     vec1.print();
     vec2.print();
+
+
 
     // end of test new lines
     std::cout << "\n\n";
