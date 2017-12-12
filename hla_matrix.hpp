@@ -75,6 +75,14 @@ public:
    */
   const T& get(std::size_t row, std:: size_t col) const;
 
+  /* addition equals overload
+   *
+   * @param r_mat right matrix to be added
+   *
+   * @return result matrix after addition
+   */
+  hla_matrix& operator+=(const hla_matrix& r_mat);
+
 private:
 
 private:
