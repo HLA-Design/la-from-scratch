@@ -121,13 +121,17 @@ hla_vector<T>& hla_matrix<T>::operator[](std::size_t idx) {
 }
 
 /* returns value at specified row and column */
-/*
 template <typename T>
 const T& hla_matrix<T>::get(std::size_t row, std:: size_t col) const {
 
-  if (idx >= m_matrix.size()) {
+  if (col >= this->n_col()) {
     throw std::length_error("Accessing matrix out of column range");
   }
 
+  if (row >= this->n_row()) {
+    throw std::length_error("Accessing matrix out of row range");
+  }
+
+  return m_matrix[col][row];
+
 }
-*/

@@ -73,7 +73,7 @@ public:
    *
    * @return the value at the specified row and col index
    */
-  //const T& get(std::size_t row, std:: size_t col) const;
+  const T& get(std::size_t row, std:: size_t col) const;
 
 private:
 

@@ -79,7 +79,36 @@ int main() {
     try {
         mat1[10];
     } catch (std::length_error& e) {
-        std::cout << e.what();
+        std::cout << std::endl << e.what() << std::endl;
+    }
+
+    /* test get successful get method */
+    std::cout << std::endl << "testing get(0, 0) method on mat1" << std::endl;
+    std::cout << std::endl << mat1.get(0, 0) << std::endl;
+
+    std::cout << std::endl << "testing get(2, 4) method on mat1" << std::endl;
+    std::cout << std::endl << mat1.get(2, 4) << std::endl;
+
+    /* test error handling of get method */
+    std::cout << std::endl << "testing get(0, 10) method error method on mat1 - invalid col idx" << std::endl;
+    try {
+        mat1.get(0, 10);
+    } catch (std::length_error& e) {
+        std::cout << std::endl << e.what() << std::endl;
+    }
+
+    std::cout << std::endl << "testing get(10, 0) method error method on mat1 - invalid row idx" << std::endl;
+    try {
+        mat1.get(10, 0);
+    } catch (std::length_error& e) {
+        std::cout << std::endl << e.what() << std::endl;
+    }
+
+    std::cout << std::endl << "testing get(10, 10) method error method on mat1 - invalid row and col idx" << std::endl;
+    try {
+        mat1.get(10, 10);
+    } catch (std::length_error& e) {
+        std::cout << std::endl << e.what() << std::endl;
     }
 
     return 0;
