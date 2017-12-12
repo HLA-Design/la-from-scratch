@@ -365,6 +365,15 @@ int main() {
     ets1_check.print();
     ets2_check.print();
 
+    // test vec1 != scalar
+    std::cout << "\n\n" << "test vec1 != scalar" << "\n";
+
+    hla_vector<bool> nes1_check = vec1 != scalar;
+    hla_vector<bool> nes2_check = scalar != vec1;
+
+    nes1_check.print();
+    nes2_check.print();
+
     // test normalize vector util function
     std::cout << "\n\n" << "test normalize(vec1)" << "\n";
 
