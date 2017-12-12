@@ -3,13 +3,13 @@
 #include "hla_matrix.hpp"
 
 int main() {
-    
+
     std::vector<int> x1(5);
     std::vector<int> x2(5);
     std::vector<int> x3(5);
     std::vector<int> x4(5);
     std::vector<int> x5(5);
-    
+
     for (int i = 0; i < 5; ++i) {
         x1[i] = i - 2;
         x2[i] = i - 1;
@@ -54,6 +54,17 @@ int main() {
     std::cout << std::endl << "Printing mat2 constructed from hla::vector<hla_vector<int> > " << std::endl;
     mat2.print();
 
+    /* test size method */
+    std::cout << std::endl << "testing size method for matrix" << std::endl;
+
+    mat2.size().print();
+
+
+
+
     return 0;
-    
+
+
+
+
 };

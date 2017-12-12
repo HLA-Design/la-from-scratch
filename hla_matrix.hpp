@@ -8,7 +8,7 @@
 
 template <typename T>
 class hla_matrix {
-    
+
 private:
    // data members:
    hla_vector<hla_vector<T> > m_matrix;
@@ -32,10 +32,16 @@ public:
    /* print out the contents of the matrix */
    void print() const;
 
+   /* returns the size of the matrix as a hla_vector
+   *
+   * @return size of the vector as hla_vector. idx 0 = # rows, isx 1 = # cols
+   */
+   hla_vector<std::size_t> size() const;
+
 private:
-    
+
 private:
-    
+
 };
 
 #include "hla_matrix.inl"

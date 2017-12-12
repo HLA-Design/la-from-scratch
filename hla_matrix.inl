@@ -48,7 +48,7 @@ hla_matrix<T>::hla_matrix(const hla_vector<hla_vector<T> >& _vec)
 template <typename T>
 hla_matrix<T>::~hla_matrix()
 {
-  // no work;	
+  // no work;
 }
 
 /* print out contents of this matrix */
@@ -65,4 +65,17 @@ void hla_matrix<T>::print() const
   std::cout << "]" << std::endl;
 
   return;
+}
+
+/* returns the size of the vector */
+template <typename T>
+hla_vector<std::size_t> hla_matrix<T>::size() const {
+
+  std::vector<std::size_t> std_vec (2);
+  hla_vector<std::size_t> size_vec (std_vec);
+
+  size_vec[0] = m_matrix[0].size();
+  size_vec[1] = m_matrix.size();
+
+  return size_vec;
 }
