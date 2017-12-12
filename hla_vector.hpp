@@ -348,6 +348,16 @@ hla_vector<bool> operator> (const hla_vector<T>& l_vec, const hla_vector<T>& r_v
 template <typename T>
 hla_vector<bool> operator>= (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
 
+/* not equals to overload
+ *
+ * @param l_vec left vector of size n to be compared
+ * @param r_vec right vector of size n to be compared
+ *
+ * @return boolean vector where @return[i] = true if l_vec[i] != r_vec[i]
+ */
+template <typename T>
+hla_vector<bool> operator!= (const hla_vector<T>& l_vec, const hla_vector<T>& r_vec);
+
 /* equals to overload
  *
  * @param l_vec left vector of size n to be compared

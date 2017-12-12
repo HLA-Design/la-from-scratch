@@ -320,6 +320,18 @@ int main() {
         std::cout << e.what();
     }
 
+    // test vec1 != vec2
+    std::cout << "\n\n" << "test vec1 != vec2" << "\n";
+
+    hla_vector<bool> neq_check = vec1 != vec2;
+    neq_check.print();
+
+    try {
+        hla_vector<bool> neq_error = vec1 != vec3;
+    } catch (std::length_error& e) {
+        std::cout << e.what();
+    }
+
     // test vec1 < scalar
     std::cout << "\n\n" << "test vec1 < scalar" << "\n";
 
