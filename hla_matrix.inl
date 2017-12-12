@@ -88,6 +88,14 @@ std::size_t hla_matrix<T>::n_col() const {
 
 }
 
+/* returns the number of rows in the matrix */
+template <typename T>
+std::size_t hla_matrix<T>::n_row() const {
+
+  return m_matrix[0].size();
+
+}
+
 /* access overload - const */
 template <typename T>
 const hla_vector<T>& hla_matrix<T>::operator[](std::size_t idx) const {

@@ -63,6 +63,10 @@ int main() {
     std::cout << std::endl << "test n_col method for mat1" << std::endl;
     std::cout << std::endl << mat1.n_col() << std::endl;
 
+    /* test n_row method */
+    std::cout << std::endl << "test n_row method for mat1" << std::endl;
+    std::cout << std::endl << mat1.n_row() << std::endl;
+
     /* test access method */
     std::cout << std::endl << "testing access opperator" << std::endl;
 

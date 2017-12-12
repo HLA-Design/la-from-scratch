@@ -44,6 +44,12 @@ public:
     */
    std::size_t n_col() const;
 
+   /* returns the number of rows in the matrix
+    *
+    * @return the number of rows in the matrix
+    */
+   std::size_t n_row() const;
+
    /* access overload - const
     *
     * @param column idx index of matrix to access
